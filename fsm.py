@@ -2,6 +2,8 @@ from transitions.extensions import GraphMachine
 
 from utils import send_text_message, send_button_template, send_T, send_H, send_S
 
+tes = 0
+
 
 class TocMachine(GraphMachine):
     def __init__(self, **machine_configs):
@@ -9,7 +11,10 @@ class TocMachine(GraphMachine):
 
     def is_going_to_state1(self, event):
         text = event.message.text
-        return text.lower() == "我想認識"
+        if tes == 0:
+            return text.lower() == "我想認識"
+        else:
+            return text.lower() == "想看看其他人"
 
     def is_going_to_state2(self, event):
         text = event.message.text
@@ -30,6 +35,7 @@ class TocMachine(GraphMachine):
     def on_enter_state1(self, event):
         print("I'm entering state1")
         reply_token = event.reply_token
+        tes = 1
         send_button_template(reply_token, "總統候選人")
 
     def on_exit_state1(self, evnet):
@@ -38,6 +44,7 @@ class TocMachine(GraphMachine):
     def on_enter_state2(self, event):
         print("I'm entering state2")
         reply_token = event.reply_token
+        tes = 1
         send_H(reply_token, "韓國瑜")
 
     def on_exit_state2(self, event):
@@ -46,6 +53,7 @@ class TocMachine(GraphMachine):
     def on_enter_state3(self, event):
         print("I'm entering state3")
         reply_token = event.reply_token
+        tes = 1
         send_T(reply_token, "蔡英文")
 
     def on_exit_state3(self, event):
@@ -54,6 +62,7 @@ class TocMachine(GraphMachine):
     def on_enter_state4(self, event):
         print("I'm entering state4")
         reply_token = event.reply_token
+        tes = 1
         send_S(reply_token, "宋楚瑜")
 
     def on_exit_state4(self, event):
@@ -62,6 +71,7 @@ class TocMachine(GraphMachine):
     def on_enter_state5(self, event):
         reply_token = event.reply_token
         print("I'm entering state5")
+        send_text_message(reply_token, "enter state5")
         self.go_back()
 
     def on_exit_state5(self):
