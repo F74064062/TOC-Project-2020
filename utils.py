@@ -62,6 +62,10 @@ def send_T(reply_token, text):
             URITemplateAction(
                 label='我想支持她',
                 uri='https://donate.iing.tw/'
+            ),
+            MessageTemplateAction(
+                label='想看看其他人',
+                text='想看看其他人'
             )
         ]
     )
@@ -89,6 +93,10 @@ def send_H(reply_token, text):
             URITemplateAction(
                 label='我想支持他',
                 uri='https://donate.iing.tw/'
+            ),
+            MessageTemplateAction(
+                label='想看看其他人',
+                text='想看看其他人'
             )
         ]
     )
@@ -116,6 +124,10 @@ def send_S(reply_token, text):
             URITemplateAction(
                 label='我想支持他',
                 uri='https://donate.iing.tw/'
+            ),
+            MessageTemplateAction(
+                label='想看看其他人',
+                text='想看看其他人'
             )
         ]
     )

@@ -23,6 +23,10 @@ class TocMachine(GraphMachine):
         text = event.message.text
         return text.lower() == "宋楚瑜"
 
+    def is_going_to_state5(self, event):
+        text = event.message.text
+        return text.lower() == "想看看其他人"
+
     def on_enter_state1(self, event):
         print("I'm entering state1")
         reply_token = event.reply_token
