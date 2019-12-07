@@ -60,8 +60,9 @@ class TocMachine(GraphMachine):
         print("Leaving state4")
 
     def on_enter_state5(self, event):
+        reply_token = event.reply_token
         print("I'm entering state5")
         self.go_back()
 
-    def on_exit_state5(self, event):
+    def on_exit_state5(self):
         print("Leaving state5")
