@@ -65,5 +65,5 @@ class TocMachine(GraphMachine):
         reply_token = event.reply_token
         send_button_template(reply_token, "總統候選人")
 
-    def on_exit_state5(self):
+    def on_exit_state5(self,event):
         print("Leaving state5")
