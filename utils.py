@@ -15,7 +15,6 @@ def send_text_message(reply_token, text):
 
 def send_button_template(reply_token, text):
     line_bot_api = LineBotApi(channel_access_token)
-    alt_text = "Confirm template",
     message = TemplateSendMessage(
     alt_text='Buttons template',
     template=ButtonsTemplate(
@@ -36,6 +35,34 @@ def send_button_template(reply_token, text):
                 text='宋楚瑜'
             ),
 
+        ]
+    )
+    )
+    line_bot_api.reply_message(reply_token, message)
+    return "OK"
+
+
+def send_T(reply_token, text):
+    line_bot_api = LineBotApi(channel_access_token)
+    message = TemplateSendMessage(
+    alt_text='蔡英文候選人',
+    template=ButtonsTemplate(
+        thumbnail_image_url='https://image.peoplenews.tw/news/b14c1624-fc77-4531-8b62-47fdcf4e9236.jpg',
+        title='Menu',
+        text='Please select',
+        actions=[
+            URITemplateAction(
+                label='她是誰',
+                uri='https://zh.wikipedia.org/wiki/%E8%94%A1%E8%8B%B1%E6%96%87'
+            ),
+            URITemplateAction(
+                label='她做了什麼',
+                uri='https://iing.tw/achievements'
+            ),
+            URITemplateAction(
+                label='我想支持她',
+                uri='https://donate.iing.tw/'
+            )
         ]
     )
     )

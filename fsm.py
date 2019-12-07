@@ -1,6 +1,6 @@
 from transitions.extensions import GraphMachine
 
-from utils import send_text_message, send_button_template
+from utils import send_text_message, send_button_template, send_T
 
 
 class TocMachine(GraphMachine):
@@ -13,7 +13,7 @@ class TocMachine(GraphMachine):
 
     def is_going_to_state2(self, event):
         text = event.message.text
-        return text.lower() == "go to state2"
+        return text.lower() == "韓國瑜"
 
     def is_going_to_state3(self, event):
         text = event.message.text
@@ -29,10 +29,17 @@ class TocMachine(GraphMachine):
 
     def on_enter_state2(self, event):
         print("I'm entering state2")
-
         reply_token = event.reply_token
-        send_text_message(reply_token, "Trigger state2")
-        self.go_back()
+        send_text_message(reply_token, "韓國瑜")
 
-    def on_exit_state2(self):
+
+    def on_exit_state2(self, event):
         print("Leaving state2")
+
+    def on_enter_state3(self, event):
+        print("I'm entering state3")
+        reply_token = event.reply_token
+        send_T(reply_token, "蔡英文")
+
+    def on_exit_state2(self, event):
+        print("Leaving state3")
