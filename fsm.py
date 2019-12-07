@@ -74,6 +74,7 @@ class TocMachine(GraphMachine):
 
     def on_enter_state6(self, event):
         reply_token = event.reply_token
+        send_text_message(reply_token,"請重新輸入 我想認識")
         self.go_back();
 
     def on_exit_state6(self,event):
