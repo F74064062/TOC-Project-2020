@@ -69,6 +69,60 @@ def send_T(reply_token, text):
     line_bot_api.reply_message(reply_token, message)
     return "OK"
 
+def send_H(reply_token, text):
+    line_bot_api = LineBotApi(channel_access_token)
+    message = TemplateSendMessage(
+    alt_text='韓國瑜候選人',
+    template=ButtonsTemplate(
+        thumbnail_image_url='https://image.peoplenews.tw/news/b14c1624-fc77-4531-8b62-47fdcf4e9236.jpg',
+        title='Menu',
+        text='Please select',
+        actions=[
+            URITemplateAction(
+                label='他是誰',
+                uri='https://zh.wikipedia.org/wiki/%E8%94%A1%E8%8B%B1%E6%96%87'
+            ),
+            URITemplateAction(
+                label='他做了什麼',
+                uri='https://iing.tw/achievements'
+            ),
+            URITemplateAction(
+                label='我想支持他',
+                uri='https://donate.iing.tw/'
+            )
+        ]
+    )
+    )
+    line_bot_api.reply_message(reply_token, message)
+    return "OK"
+
+def send_S(reply_token, text):
+    line_bot_api = LineBotApi(channel_access_token)
+    message = TemplateSendMessage(
+    alt_text='宋楚瑜候選人',
+    template=ButtonsTemplate(
+        thumbnail_image_url='https://image.peoplenews.tw/news/b14c1624-fc77-4531-8b62-47fdcf4e9236.jpg',
+        title='Menu',
+        text='Please select',
+        actions=[
+            URITemplateAction(
+                label='他是誰',
+                uri='https://zh.wikipedia.org/wiki/%E8%94%A1%E8%8B%B1%E6%96%87'
+            ),
+            URITemplateAction(
+                label='他做了什麼',
+                uri='https://iing.tw/achievements'
+            ),
+            URITemplateAction(
+                label='我想支持他',
+                uri='https://donate.iing.tw/'
+            )
+        ]
+    )
+    )
+    line_bot_api.reply_message(reply_token, message)
+    return "OK"
+
 
 
 """
